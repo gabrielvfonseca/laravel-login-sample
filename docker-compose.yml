@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+    laravel:
+        build:
+            args:
+                user: gabriel
+                udi: 1000
+            context: ./
+            dockerfile: Dockerfile
+        image: laravel-app
+        restart: unless-stopped
+        working_dir: /var/www
+        volumes:
+            - ./:/var/www
+        depends_on:
+            - mongodb
